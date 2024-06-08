@@ -9,10 +9,10 @@ class Solution {
 
     private boolean isPalindrome(String s) {
         int n = s.length();
-        char[] ch = s.toCharArray();
+        //char[] ch = s.toCharArray();
 
         for(int i=0, j=n-1;i<j;i++,j--) {
-            if(ch[i] != ch[j]) return false;
+            if(s.charAt(i) != s.charAt(j)) return false;
         }
         return true;
     }
