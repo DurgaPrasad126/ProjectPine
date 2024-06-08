@@ -11,8 +11,8 @@ class Solution {
         int n = s.length();
         char[] ch = s.toCharArray();
 
-        for(int i=0;i<n/2;i++) {
-            if(ch[i] != ch[n-1-i]) return false;
+        for(int i=0, j=n-1;i<j;i++,j--) {
+            if(ch[i] != ch[j]) return false;
         }
         return true;
     }
