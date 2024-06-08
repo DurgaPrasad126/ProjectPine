@@ -10,5 +10,19 @@ class Solution {
             }
         }
         return false;
+
+        //O(n*n) - 94/98 TCs passed
+        /*
+        for(int i=0;i<nums.length-1;i++){
+            long[] sums = new long[nums.length];
+            long sum = nums[i];
+            for(int j=i+1;j<nums.length;j++){
+                sum+=nums[j];
+                sums[j] = sum;
+                if(sums[j] % k == 0) return true;
+            }
+        }
+        return false;
+        */
     }
 }
