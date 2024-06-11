@@ -3,8 +3,10 @@ class Solution {
         if(piles.length == 1) {
             return piles[0]%h == 0? piles[0]/h : piles[0]/h + 1;
         }
-        int max = 1000000000; int min = 1;
-
+        int max = 0; int min = 1;
+        for(int pile : piles) {
+            if(max < pile) max = pile;
+        }
         int low = min;
         int high = max;
         int res = 0;
