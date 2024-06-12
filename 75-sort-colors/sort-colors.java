@@ -1,17 +1,15 @@
 class Solution {
     public void sortColors(int[] nums) {
-        TreeMap<Integer, Integer> map = new TreeMap<>();
+        int[] count = new int[3];
 
         for(int i=0;i<nums.length;i++){
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+            count[nums[i]]++;
         }
-
-        int i=0;
-        for(Integer key : map.keySet()) {
-            int count = map.get(key);
-            while(count > 0) {
-                nums[i++] = key;
-                count--;
+        int pos = 0;
+        for(int i=0;i<3;i++){
+            while(count[i] > 0) {
+                nums[pos++]=i;
+                count[i]--;
             }
         }
     }
