@@ -9,7 +9,6 @@ class Solution {
         int res = 0;
 
         for(int i=0;i<seats.length;i++){
-            System.out.println(seats[i] + " --- " + students[i]);
             res+=Math.abs(seats[i]-students[i]);
         }
         return res;
