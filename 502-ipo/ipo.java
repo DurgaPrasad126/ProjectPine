@@ -6,7 +6,6 @@ class Solution {
 
         for(int i=0;i<n;i++){
             pro.add(new Profit(profits[i], capital[i]));
-            //queue.add(new int[]{profits[i], capital[i]});
         }
         int pos = 0;
         int maxProfit = 0;
@@ -15,12 +14,10 @@ class Solution {
         while( k > 0 ) {
             while(pos< n && pro.get(pos).capitl <= w) {
                 Profit p = pro.get(pos);
-                //System.out.println(p.profit + " --- " + p.capitl);
                 queue.add(new int[]{p.profit, p.capitl});
                 pos++;
             }
             if(queue.isEmpty()) return w;
-            //System.out.println(queue.size());
             int[] max = queue.poll();
             maxProfit+=max[0];
             w+=max[0];
