@@ -8,7 +8,6 @@ class Solution {
             pro.add(new Profit(profits[i], capital[i]));
         }
         int pos = 0;
-        int maxProfit = 0;
         Collections.sort(pro, (a,b) -> a.capitl - b.capitl);
         
         while( k > 0 ) {
@@ -18,9 +17,7 @@ class Solution {
                 pos++;
             }
             if(queue.isEmpty()) return w;
-            int[] max = queue.poll();
-            maxProfit+=max[0];
-            w+=max[0];
+            w+=queue.poll()[0];
             k--;
         }
         return w;
