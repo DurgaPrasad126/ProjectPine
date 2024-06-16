@@ -1,28 +1,17 @@
 class Solution {
     public long countCompleteDayPairs(int[] hours) {
-        Map<Integer, Integer> countPairs = new HashMap<>();
+        int[] counted = new int[24];
         int n = hours.length;
         for(int i=0;i<n;i++) {
-            countPairs.put(hours[i]%24, countPairs.getOrDefault(hours[i]%24, 0) + 1);
+            counted[hours[i]%24]++;
         }
         long completePairs = 0l;
-        int[] counted = new int[24];
-        for(Integer rem : countPairs.keySet()) {
-            if(rem == 0 || rem == 12) {
-                counted[rem]=1;
-                int number = countPairs.get(rem);
-                completePairs+=(long)number*(number-1)/2;
-            }
-            else {
-                int remainingRemainder = 24-rem;
-                if(countPairs.containsKey(remainingRemainder)) {
-                    if(counted[rem] == 1 || counted[remainingRemainder] == 1) continue;
-                    int remSize = countPairs.get(rem);
-                    int remainingRemainderSize = countPairs.get(remainingRemainder);
-                    completePairs+=(long)remSize*remainingRemainderSize;
-                    counted[rem] = 1;
-                    counted[remainingRemainder] = 1;
-                }
+
+        for(int i =0;i<=12;i++){
+            if(i == 0 || i == 12) {
+                completePairs += (1l*(counted[i])*(counted[i]-1))/2;
+            }else{
+                completePairs += 1l*(counted[i])*(counted[24-i]);
             }
         }
         return completePairs;
