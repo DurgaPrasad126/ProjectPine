@@ -3,13 +3,11 @@ class Solution {
         Map<Integer,Integer> freq = new TreeMap<>();
         for(int i : power) freq.put(i,freq.getOrDefault(i,0)+1);
         int n = freq.size();
-        //{value,damage if included, max damage till that point}
         long[][] dp = new long[n][3];
         int pos =0;
         for(int i : freq.keySet()){
             dp[pos][0] = i;
             dp[pos][1] = freq.get(i);
-            //System.out.println(dp[pos][0]+" -- "+dp[pos][1]);
             pos++;
         }
         dp[0][2] = 1l*dp[0][0]*dp[0][1];
@@ -25,7 +23,6 @@ class Solution {
                 }
             }
             dp[i][2] = Math.max(max,add);
-            //System.out.println(dp[i][2]);
         }
         return dp[n-1][2];
     }
