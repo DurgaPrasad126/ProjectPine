@@ -6,7 +6,6 @@ class Solution {
         while(left <= right) {
             long rightProduct = (long)right*right;
             long sumSq = (long)(left*left) + rightProduct;
-            System.out.println(sumSq);
             if(c==sumSq) return true;
             else if(sumSq > c) right--;
             else left++;
