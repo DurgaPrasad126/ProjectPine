@@ -8,16 +8,11 @@ class Solution {
             diffProfit[i][0] = difficulty[i];
             diffProfit[i][1] = profit[i];
         }
-        for(int i=0;i<n;i++){
-            System.out.println(diffProfit[i][0] + " ---- " + diffProfit[i][1]);
-        }
 
         Arrays.sort(diffProfit, (a,b) -> a[0]-b[0]);
         for(int i=0;i<n-1;i++){
             diffProfit[i+1][1] = Math.max(diffProfit[i][1], diffProfit[i+1][1]);
-            System.out.println(diffProfit[i][0] + " ---- " + diffProfit[i][1]);
         }
-        //Arrays.sort(workers);
         for(int worker : workers) {
             int nearestDiffIndex = getNearestDifficultyIndex(diffProfit, worker);
             maxProfitObtained+=nearestDiffIndex;
