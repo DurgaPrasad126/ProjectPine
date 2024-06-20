@@ -22,7 +22,7 @@ class Solution {
     private boolean canPut(int[] positions, int m, int max) {
         int count = 1;
         int last = positions[0];
-        for (int i = 0; i < positions.length; i++) {
+        for (int i = 1; i < positions.length; i++) {
             if (positions[i] - last >= max) {
                 last = positions[i];
                 count++;
