@@ -1,8 +1,10 @@
 class Solution {
     public int minDifference(int[] nums) {
         if(nums.length <= 4) return 0;
-        //if(nums.length == 5) return nums[nums.length-1]-nums[nums.length-2];
+
         Arrays.sort(nums);
+
+
         int n = nums.length;
         int a = nums[1]-nums[0];
         int b = nums[2] - nums[1];
@@ -11,12 +13,10 @@ class Solution {
         int e = nums[n-2]-nums[n-3];
         int d = nums[n-3]-nums[n-4];
 
-        int diff = Math.max(a+b+c,a+b+f);
-        diff = Math.max(diff,a+f+e);
-        diff = Math.max(diff,d+e+f);
+        int diff = (a+b+c > a+b+f) ? a+b+c : a+b+f;
+        diff = diff > a+f+e ? diff : a+f+e;
+        diff = diff > d+e+f ? diff : d+e+f;
 
         return nums[n-1]-nums[0]-diff;
-          
-        //return Math.min(nums[nums.length-4]-nums[0], nums[nums.length-1]-nums[3]);
     }
 }
