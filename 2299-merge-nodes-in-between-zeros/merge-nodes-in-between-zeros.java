@@ -9,10 +9,10 @@
  * }
  */
 class Solution {
-    public ListNode mergeNodes(ListNode head) {
+    public ListNode mergeNodes(ListNode temp) {
         ListNode res = new ListNode(0);
         ListNode ans = res;
-        ListNode temp = head.next;
+        temp = temp.next;
         while(temp != null) {
             int value = temp.val;
             ListNode temp2 = new ListNode();
