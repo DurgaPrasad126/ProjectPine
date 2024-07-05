@@ -46,18 +46,19 @@ class Solution {
         return res;*/
 
         //Collections.sort(criticalPoints);
-
-        if(criticalPoints.size() < 2) return new int[]{-1,-1};
+        int criticSize = criticalPoints.size();
+        if(criticSize < 2) return new int[]{-1,-1};
         int minima = Integer.MAX_VALUE;
         int maxima = Integer.MIN_VALUE;
         int minDiff = Integer.MAX_VALUE;
-        for(int i=0;i<criticalPoints.size()-1;i++) {
+
+        for(int i=0;i<criticSize-1;i++) {
             minima = Math.min(minima, criticalPoints.get(i));
             maxima = Math.max(maxima, criticalPoints.get(i));
             minDiff = Math.min(minDiff, criticalPoints.get(i+1)-criticalPoints.get(i));
         }
-                    minima = Math.min(minima, criticalPoints.get(criticalPoints.size()-1));
-            maxima = Math.max(maxima, criticalPoints.get(criticalPoints.size()-1));
+                    minima = Math.min(minima, criticalPoints.get(criticSize-1));
+            maxima = Math.max(maxima, criticalPoints.get(criticSize-1));
 
 
         return new int[]{minDiff, maxima-minima};
