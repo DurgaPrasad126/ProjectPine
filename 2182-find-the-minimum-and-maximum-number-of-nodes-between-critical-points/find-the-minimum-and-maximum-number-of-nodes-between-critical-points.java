@@ -10,42 +10,36 @@
  */
 class Solution {
     public int[] nodesBetweenCriticalPoints(ListNode head) {
-        /*int maxima = 0;
-        int minima = Integer.MAX_VALUE;
-        int minCritical = Integer.MAX_VALUE;
-        int maxCritical = Integer.MIN_VALUE;*/
+       int firstCritical = -1;
+       int prevCritical = -1;
+       int minDistance = Integer.MAX_VALUE;
 
         ListNode prevPointer = head;
         ListNode currPointer = head.next;
 
         int counter = 2;
 
-        ArrayList<Integer> criticalPoints = new ArrayList<>();
+        //ArrayList<Integer> criticalPoints = new ArrayList<>();
 
         while(currPointer.next != null) {
             if((prevPointer.val < currPointer.val && currPointer.val > currPointer.next.val) 
             || (prevPointer.val > currPointer.val && currPointer.val < currPointer.next.val)) {
-                criticalPoints.add(counter);
+                if(firstCritical == -1) {
+                    firstCritical = counter;
+                    prevCritical = counter;
+                }
+                else {
+                    minDistance = Math.min(minDistance, counter-prevCritical);
+                    prevCritical = counter;
+                }
+                //criticalPoints.add(counter);
             }
             prevPointer=prevPointer.next;
             currPointer = currPointer.next;
             counter++;
         }
-        /*int[] res = new int[2];
-        res[0] = -1;
-        res[1] = -1;
 
-        if((minCritical ==  Integer.MAX_VALUE || maxCritical == Integer.MAX_VALUE)) return new int[2]{-1,-1};
-
-        if(minCritical ==  Integer.MAX_VALUE){
-            res[0] = maxCritical;
-        }
-        else if(maxCritical == Integer.MAX_VALUE) res[1] = minCritical;
-
-
-        return res;*/
-
-        //Collections.sort(criticalPoints);
+        /*Collections.sort(criticalPoints);
         int criticSize = criticalPoints.size();
         if(criticSize < 2) return new int[]{-1,-1};
         int minima = Integer.MAX_VALUE;
@@ -59,8 +53,10 @@ class Solution {
         }
                     minima = Math.min(minima, criticalPoints.get(criticSize-1));
             maxima = Math.max(maxima, criticalPoints.get(criticSize-1));
+            */
 
-
-        return new int[]{minDiff, maxima-minima};
+            if(firstCritical == -1 || prevCritical == -1 || (firstCritical == prevCritical)) return new int[]{-1,-1};
+            
+        return new int[]{minDistance, prevCritical-firstCritical};
     }
 }
