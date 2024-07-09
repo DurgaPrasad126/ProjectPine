@@ -11,7 +11,7 @@ class Solution {
             }
             else {
                 totalWaitTime+= customers[i][1];
-                timeTillNow = customers[i][0]+customers[i][1];
+                timeTillNow = 0l+customers[i][0]+customers[i][1];
             }
         }
         return (double)(1d*totalWaitTime)/n;
