@@ -9,9 +9,7 @@ class Solution {
         }
 
         Arrays.sort(positionSorted, (a,b) -> a[0]-b[0]);
-        for(int i=0;i<positions.length;i++) {
-            System.out.println(positionSorted[i][0] + "  ----  "  + positionSorted[i][1]);
-        }
+        
         Stack<Integer> collisionStack = new Stack<>();
         char[] dirch = directions.toCharArray();
         for(int i=0;i<positions.length;i++){
@@ -19,8 +17,7 @@ class Solution {
                 collisionStack.push(positionSorted[i][1]);
             }
             else{
-                //System.out.println("stack - " + dirch[collisionStack.peek()] + " ---- " +  collisionStack.peek());
-                //System.out.println("array - " + dirch[positionSorted[i][1]] + " ---- " +  positionSorted[i][1]);
+               
                 if((dirch[collisionStack.peek()] == 'R' && dirch[positionSorted[i][1]] == 'L')) {
                     int robot = collisionStack.pop();
 
