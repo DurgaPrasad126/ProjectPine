@@ -17,12 +17,6 @@ class Solution {
                 else res[i][j] = colsum[j];
             }
         }
-        System.out.println(upper);
-        for(int i=0;i<colsum.length;i++){
-                System.out.print(res[0][i] + " --- ");
-        }
-
-
             for(int i=0;i<colsum.length;i++){
                 if( upper > 0 && res[0][i] == 1) {
                     res[0][i]=1;
