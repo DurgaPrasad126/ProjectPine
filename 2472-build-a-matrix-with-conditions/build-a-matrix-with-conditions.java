@@ -1,5 +1,5 @@
 class Solution {
-
+    //editorial
     public int[][] buildMatrix(
         int k,
         int[][] rowConditions,
