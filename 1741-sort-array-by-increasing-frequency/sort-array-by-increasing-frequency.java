@@ -14,9 +14,7 @@ class Solution {
 
         Arrays.sort(freqArr, (a,b) -> a[1]!=b[1] ? a[1]-b[1] : (b[0]-a[0]));
         pos = 0; int lpos = 0;
-        for(int i=0;i<freqArr.length;i++){
-            System.out.println(freqArr[i][0] + " --- " + freqArr[i][1]);
-        }
+
         while(pos < freqArr.length){
             while(lpos<nums.length && freqArr[pos][1] > 0) {
                 nums[lpos++]=freqArr[pos][0];
