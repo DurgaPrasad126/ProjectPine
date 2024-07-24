@@ -21,9 +21,10 @@ class Solution {
     public int convertNumToMappedNum(int num, int[] mapping){
         if(num >= 0 && num <=9) return mapping[num];
         int mappedNum = 0;
-        int i=0;
+        int power=1;
         while(num > 0){
-            mappedNum = ((int)Math.pow(10,i++))*mapping[num%10] + mappedNum;
+            mappedNum = (power)*mapping[num%10] + mappedNum;
+            power*=10;
             num/=10;
         }
         return mappedNum;
