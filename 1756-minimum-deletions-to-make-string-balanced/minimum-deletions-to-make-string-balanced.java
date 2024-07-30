@@ -3,14 +3,14 @@ class Solution {
         Stack<Character> stack = new Stack<>();
 
         int minDelete = 0;
-        char[] ch = s.toCharArray();
+        //char[] ch = s.toCharArray();
 
-        for(char c : ch) {
-            if(!stack.isEmpty() && stack.peek() == 'b' && c == 'a') {
+        for(int i=0;i<s.length();i++) {
+            if(!stack.isEmpty() && stack.peek() == 'b' && s.charAt(i) == 'a') {
                 minDelete++; 
                 stack.pop();
             }
-            else stack.push(c);
+            else stack.push(s.charAt(i));
         }
 
         return minDelete;
