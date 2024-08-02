@@ -9,8 +9,6 @@ class Solution {
             circNums[i] = circNums[n+i] = nums[i];  
         }
 
-        for(int i=0;i<2*n;i++) System.out.print(circNums[i] + " --- ");
-
         int count = 0;
         for(int i=0;i<oneCount;i++) if(circNums[i] == 1) count++;
         if(count == oneCount) return 0;
