@@ -8,7 +8,7 @@ class Solution {
         }
         if(map.keySet().size() != mapt.keySet().size()) return false;
         for(int key: map.keySet()) {
-            if(!mapt.containsKey(key) || map.get(key) != mapt.get(key)) return false;
+            if( map.getOrDefault(key, 0) != mapt.getOrDefault(key, 0)) return false;
         }
         return true;
     }
