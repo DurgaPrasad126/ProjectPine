@@ -1,9 +1,11 @@
 class FooBar {
     private int n;
+    private boolean isFoo;
     private int i;
 
     public FooBar(int n) {
         this.n = n;
+        this.isFoo = true;
         this.i = 0;
     }
 
@@ -12,9 +14,10 @@ class FooBar {
         while(i<2*n) {
             
         	// printFoo.run() outputs "foo". Do not change or remove this line.
-        	if(i%2==0){
+        	if(isFoo){
                 printFoo.run();
                 i++;
+                isFoo=false;
                 notifyAll();
             }
             else {
@@ -29,9 +32,10 @@ class FooBar {
         while(i<2*n) {
             
             // printBar.run() outputs "bar". Do not change or remove this line.
-        	if(i%2==1){
+        	if(!isFoo){
                 printBar.run();
                 i++;
+                isFoo=true;
                 notifyAll();
             }
             else {
