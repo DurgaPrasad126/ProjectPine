@@ -1,42 +1,47 @@
 class Solution {
     public int numMagicSquaresInside(int[][] grid) {
-        if(grid.length < 3 || grid[0].length < 3) return 0;
-        
-        int magicBoxCount = 0;
-        for(int i=0; i<=(grid.length-3); i++){
-            for(int j=0; (j<=grid[0].length-3); j++){
-                if(isAMagicBox(grid, i, j)) 
-                    magicBoxCount++;
+        int m = grid.length;
+        int n = grid[0].length;
+        if(m < 3 || n < 3) return 0;
+
+        int count = 0;
+
+        for(int i=0;i<m-2;i++){
+            for(int j=0;j<n-2;j++){
+                Set<Integer> dist = new HashSet<>();
+                boolean isInvalid = false;
+                for(int k=0;k<=2;k++){
+                    for(int l=0;l<=2;l++){
+                        if(dist.contains(grid[i+k][j+l]) || grid[i+k][j+l] == 0 || grid[i+k][j+l] > 9) {
+                            isInvalid = true;
+                            break;
+                        }
+                        dist.add(grid[i+k][j+l]);
+                    }
+                    if(isInvalid) break;
+                }
+                if(isInvalid) continue;
+                int rowSum = grid[i][j] + grid[i][j+1] + grid[i][j+2];
+                int rowSum2 = grid[i+1][j] + grid[i+1][j+1] + grid[i+1][j+2];
+                int rowSum3 = grid[i+2][j] + grid[i+2][j+1] + grid[i+2][j+2];
+                int colSum = grid[i][j] + grid[i+1][j] + grid[i+2][j];
+                int colSum2 = grid[i][j+1] + grid[i+1][j+1] + grid[i+2][j+1];
+                int colSum3 = grid[i][j+2] + grid[i+1][j+2] + grid[i+2][j+2];
+                int diagSum = grid[i][j] + grid[i+1][j+1] + grid[i+2][j+2];
+                int antiDiagSum = grid[i][j+2] + grid[i+1][j+1] + grid[i+2][j];
+                
+                if(rowSum == colSum 
+                    && colSum == diagSum 
+                    && diagSum == antiDiagSum
+                    && antiDiagSum == rowSum2
+                    && rowSum2 == rowSum3
+                    && rowSum3 == colSum2
+                    && colSum2 == colSum3) {
+                    
+                    count++;
+                }
             }
         }
-        
-        return magicBoxCount;
+        return count;
     }
-    
-    private boolean isAMagicBox(int[][] grid, int x, int y){
-        if(grid[x+1][y+1] != 5) return false;
-        
-        if(grid[x][y] %2 != 0 || grid[x+2][y] %2 != 0  ||
-           grid[x][y+2] %2 != 0 || grid[x+2][y+2] %2 != 0 )
-        {
-            return false;
-        }
-        
-        if(grid[x+1][y] %2 == 0 || grid[x][y+1] %2 == 0  ||
-           grid[x+1][y+2] %2 == 0 || grid[x+2][y+1] %2 == 0 )
-        {
-            return false;
-        }
-        
-        if ( (grid[x][y] + grid[x][y+1] + grid[x][y+2]) != 15 || 
-            (grid[x+2][y] + grid[x+2][y+1] + grid[x+2][y+2]) != 15 || 
-            (grid[x][y] + grid[x+1][y] + grid[x+2][y]) != 15) 
-        {
-            return false;
-        }
-        
-        return true;
-        
-    }
-    
 }
