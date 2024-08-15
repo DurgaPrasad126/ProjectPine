@@ -5,9 +5,10 @@ class Solution {
         int r = height.length-1;
 
         while(l < r) {
-            maxArea = Math.max(maxArea, Math.min(height[l],height[r])*(r-l));
-            if(height[l] < height[r]) l++;
-            else r--;
+            int min = Math.min(height[l],height[r]);
+            maxArea = Math.max(maxArea, min*(r-l));
+            while(height[l] <= min && l < r) l++;
+            while(height[r] <= min && l < r) r--;
         }
         return maxArea;
     }
