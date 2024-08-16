@@ -12,10 +12,11 @@ class Solution {
                 if(nums[lo] <= target && target <= nums[mid]) hi = mid;
                 else lo = mid+1;
             }
-            else {
+            else if (nums[lo] > nums[mid]){
                 if(nums[mid] <= target && target <= nums[hi]) lo = mid;
                 else hi = mid-1;
             }
+            //else lo++;
             
         }
 
