@@ -1,6 +1,5 @@
 class Solution {
     public boolean isRobotBounded(String instructions) {
-        int[][] directions = {{0,1}, {-1,0}, {0,-1}, {1,0}};
         char[] ch = instructions.toCharArray();
         int[] curPos = {0,0};
         char curDir = 'N';
