@@ -1,5 +1,5 @@
 class Solution {
-
+    // not a good problem , it is just an application of math
     public String nearestPalindromic(String n) {
         int len = n.length();
         int i = len % 2 == 0 ? len / 2 - 1 : len / 2;
