@@ -26,12 +26,12 @@ class Solution {
 
     public void naryPostOrder(Node root, List<Integer> res) {
         if(root == null) return;
-        if(root.children == null || root.children.size() == 0) res.add(root.val);
+        //if(root.children == null || root.children.size() == 0) res.add(root.val);
 
         for(Node child : root.children) {
             naryPostOrder(child, res);
         }
-        if(root.children.size() != 0) res.add(root.val);
+        res.add(root.val);
     }
 
 }
