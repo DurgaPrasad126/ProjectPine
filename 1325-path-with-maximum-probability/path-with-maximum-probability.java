@@ -4,21 +4,21 @@ class Solution {
         maxProb[start] = 1.0;
 
         for (int i = 0; i < n - 1; i++) {
-            boolean hasUpdate = false;
+            boolean hasUpdae = false;
             for (int j = 0; j < edges.length; j++) {
                 int u = edges[j][0];
                 int v = edges[j][1];
                 double pathProb = succProb[j];
                 if (maxProb[u] * pathProb > maxProb[v]) {
                     maxProb[v] = maxProb[u] * pathProb;
-                    hasUpdate = true;
+                    hasUpdae = true;
                 }
                 if (maxProb[v] * pathProb > maxProb[u]) {
                     maxProb[u] = maxProb[v] * pathProb;
-                    hasUpdate = true;
+                    hasUpdae = true;
                 }
             }
-            if (!hasUpdate) {
+            if (!hasUpdae) {
                 break;
             }
         }
