@@ -8,8 +8,6 @@ class Solution {
             digPrefix[i] = digPrefix[i-1] + (s.charAt(i)-97);
         }
 
-        for(int i : digPrefix) System.out.println(i + " --- ");
-
         StringBuilder sb = new StringBuilder();
         int pos=0;
         while(pos<n) {
