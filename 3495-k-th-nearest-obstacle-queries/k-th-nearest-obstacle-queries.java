@@ -1,7 +1,7 @@
 class Solution {
     public int[] resultsArray(int[][] queries, int k) {
         int n = queries.length;
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(k, (a,b) -> b-a);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b-a);
         int[] res = new int[n];
         int pos = 0;
         for(int[] query : queries) {
