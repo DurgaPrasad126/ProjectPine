@@ -11,12 +11,12 @@ class Solution {
             }
             else {
                 if(maxHeap.size() < k) {
-                    maxHeap.add(distanceFromOrigin);
+                    maxHeap.offer(distanceFromOrigin);
                     res[pos++] = maxHeap.size() == k ? maxHeap.peek() : -1;
                 }
                 else{
                     maxHeap.poll();
-                    maxHeap.add(distanceFromOrigin);
+                    maxHeap.offer(distanceFromOrigin);
                     res[pos++] = maxHeap.peek();
                 }
             }
