@@ -2,25 +2,22 @@ class Solution {
     public long minimumTime(int[] time, int totalTrips) {
         long low = 0;
         long high = 100000000000000l;
-        long res = 0;
+        long res = 100000000000000l;
 
         while(low<high) {
             long mid = low +(high-low)/2l;
             long totalTripsPossbile = calculateTotalTripsPossible(time, mid);
             //System.out.println(mid + " --- " + totalTripsPossbile);
-            if(totalTripsPossbile == totalTrips) {
+            if(totalTripsPossbile >= totalTrips) {
                 res=mid;
                 high=mid;
-            }
-            else if(totalTripsPossbile > totalTrips) {
-                high = mid;
             }
             else {
                 low = mid+1;
             }
         }
 
-        return res==0l? high : res;
+        return res;
     }
 
     public long calculateTotalTripsPossible(int[] time, long maxTime) {
