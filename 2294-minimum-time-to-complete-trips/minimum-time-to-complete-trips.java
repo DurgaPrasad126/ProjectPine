@@ -12,7 +12,7 @@ class Solution {
         //high=res;
 
         while(low<high) {
-            long mid = low +(high-low)/2l;
+            long mid = low+high >> 1;
             long totalTripsPossbile = calculateTotalTripsPossible(time, mid);
             if(totalTripsPossbile >= totalTrips) {
                 //res=mid;
