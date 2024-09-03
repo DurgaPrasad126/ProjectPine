@@ -1,13 +1,19 @@
 class Solution {
     public long minimumTime(int[] time, int totalTrips) {
-        long low = 0;
-        long high = 100000000000000l;
-        long res = 100000000000000l;
+        long low = 1;
+        long high = 1;
+        long res = 1;
+
+        for(int t : time) {
+            low = Math.min(low, t);
+            high  = Math.max(high, t);
+        }
+        res = (long)high*totalTrips;
+        high=res;
 
         while(low<high) {
             long mid = low +(high-low)/2l;
             long totalTripsPossbile = calculateTotalTripsPossible(time, mid);
-            //System.out.println(mid + " --- " + totalTripsPossbile);
             if(totalTripsPossbile >= totalTrips) {
                 res=mid;
                 high=mid;
