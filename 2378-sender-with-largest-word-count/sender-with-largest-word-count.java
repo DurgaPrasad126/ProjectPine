@@ -35,7 +35,14 @@ class Solution {
     }
 
     public int getWordCount(String message) {
+        /*
         String[] splitStrings = message.split(" ");
         return splitStrings.length;
+        */
+        int count = 0;
+        for(int i=0;i<message.length();i++){
+            if(message.charAt(i) == ' ') count++; 
+        }
+        return count+1;
     }
 }
