@@ -5,7 +5,8 @@ class Solution {
         int max = 0;
         String res = "";
         for(int i=0;i<n;i++){
-            freqMap.put(senders[i], freqMap.getOrDefault(senders[i], 0) + getWordCount(messages[i]));
+            int wordCount = getWordCount(messages[i]);
+            freqMap.put(senders[i], freqMap.getOrDefault(senders[i], 0) + wordCount);
             int curCount = freqMap.get(senders[i]);
             if(curCount > max) {
                 max=curCount;
