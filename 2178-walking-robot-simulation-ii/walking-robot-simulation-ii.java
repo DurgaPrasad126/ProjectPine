@@ -13,7 +13,10 @@ class Robot {
     }
     
     public void step(int num) {
-        num%=2*((width-1)+(height-1));
+        //reduce the computations by ignoring all the rotations around the perimeter. 
+        //if we simply do width*height we will travel all the corner edges 2 times so to manage this we have to subtract 4 from w * 2 + h * 2 - 4.
+        num%=2*(width+height)-4;
+        //the trick here is for one perimeter rotation, the direction is still South and not East
         if(num == 0) num = 2*((width-1)+(height-1));
         for(int i=0;i<num;i++){
             int[] direction = directions[dirIndex];
