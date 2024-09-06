@@ -20,10 +20,7 @@ class Solution {
 
         while(iterator != null) {
             if(set.contains(iterator.val)) {
-                ListNode nextPtr = iterator.next;
-                //iterator.next = null;
-                //System.out.println(prevPtr.val);
-                prevPtr.next = nextPtr;
+                prevPtr.next = iterator.next;
             }
             else {
                 prevPtr=prevPtr.next;
