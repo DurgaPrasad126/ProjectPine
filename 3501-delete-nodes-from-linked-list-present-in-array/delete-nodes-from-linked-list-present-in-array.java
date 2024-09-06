@@ -18,6 +18,17 @@ class Solution {
         ListNode prevPtr = dummy;
         ListNode iterator = dummy.next;
 
+                // Handle the case where the head node needs to be removed
+        while (iterator != null && set.contains(iterator.val)) {
+            iterator = iterator.next;
+        }
+        prevPtr.next = iterator;
+
+        // If the list is empty after removing head nodes, return null
+        if (iterator == null) {
+            return null;
+        }
+
         while(iterator != null) {
             if(set.contains(iterator.val)) {
                 prevPtr.next = iterator.next;
