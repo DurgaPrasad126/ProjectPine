@@ -19,6 +19,14 @@ class Solution {
         ListNode iterator = dummy.next;
 
         while(iterator != null) {
+            while(iterator != null && set.contains(iterator.val)) {
+                iterator=iterator.next;
+            }
+            //ListNode nextPtr = iterator;
+            prevPtr.next = iterator;
+            prevPtr = prevPtr.next;
+            if(iterator != null) iterator=iterator.next;
+            /*
             if(set.contains(iterator.val)) {
                 ListNode nextPtr = iterator.next;
                 //iterator.next = null;
@@ -29,6 +37,7 @@ class Solution {
                 prevPtr=prevPtr.next;
             }
             iterator = iterator.next;
+            */
         }
         return dummy.next;
     }
