@@ -16,8 +16,6 @@ class Solution {
             size++;
             dummy=dummy.next;
         }
-        System.out.println(size);
-
         int rem = size%k;
         ListNode[] res = new ListNode[k];
         int pos = 0;
