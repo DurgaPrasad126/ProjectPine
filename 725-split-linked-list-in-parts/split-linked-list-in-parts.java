@@ -28,12 +28,8 @@ class Solution {
                 prev = head;
                 head = head.next;
             }
-
-            ListNode nextList = head;
             if(prev != null) prev.next = null;
-
             res[pos++] = list;
-            head = nextList;
             rem--;
         }
         return res;
