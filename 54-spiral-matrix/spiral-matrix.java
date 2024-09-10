@@ -6,9 +6,9 @@ class Solution {
         int[][] direction = {{0,1}, {1,0}, {0,-1}, {-1,0}};
         Set<String> pos = new HashSet<>();
 
-        int[] res = new int[m*n];
+        List<Integer> res = new ArrayList<>();
         while(cur < m*n) {
-            res[cur] = matrix[i][j];
+            res.add(matrix[i][j]);
             pos.add(i+"_"+j);
             int new_i = i + direction[cur_d][0];
             int new_j = j + direction[cur_d][1];
@@ -29,8 +29,7 @@ class Solution {
             
         }
 
-        List<Integer> result = new ArrayList<>();
-        for(int ij : res) result.add(ij);
-        return result;
+       
+        return res;
     }
 }
