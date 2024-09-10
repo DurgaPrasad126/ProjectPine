@@ -10,69 +10,27 @@
  */
 class Solution {
     public int[][] spiralMatrix(int m, int n, ListNode head) {
-        int[][] ans=new int[m][n];
-        for(int[] arr:ans){
-            Arrays.fill(arr,-1);
-        }
-        
-        int rowBegin=0;
-        int rowEnd=m-1;
-        int columnBegin=0;
-        int columnEnd=n-1;
-        ListNode cur=head;
-        
-      
-        while(rowBegin<=rowEnd && columnBegin<=columnEnd && cur!=null){
+        int i=0, j=0, cur_d = 0;
+        int[][] direction = {{0,1}, {1,0}, {0,-1}, {-1,0}};
+
+        int[][] res = new int[m][n];
+        for(int[] wor : res) Arrays.fill(wor, -1);
+
+        while(head != null) {
+            res[i][j] = head.val;
+            int new_i = i + direction[cur_d][0];
+            int new_j = j + direction[cur_d][1];
+
+            if( new_i < 0 || new_j < 0
+                || new_i >= m
+                || new_j >= n
+                || res[new_i][new_j] != -1) cur_d = (cur_d+1)%4;
             
-            for(int i=columnBegin;i<=columnEnd && cur!=null;i++){
-                if(cur!=null){
-                    ans[rowBegin][i]=cur.val;
-                }
-               
-                    cur=cur.next;
-                
-                
-            }
-            rowBegin++;
-            for(int i=rowBegin;i<=rowEnd && cur!=null;i++){
-               if(cur!=null){
-                ans[i][columnEnd]=cur.val;
-               }
-                
-                    cur=cur.next;
-                
+            i+=direction[cur_d][0];
+            j+=direction[cur_d][1];
 
-            }
-            columnEnd--;
-            if(rowBegin<=rowEnd){
-                for(int i=columnEnd;i>=columnBegin && cur!=null;i--){
-                if(cur!=null){
-                ans[rowEnd][i]=cur.val;
-                }
-                 
-                    cur=cur.next;
-                
-
-            }
-           
-            }
-             rowEnd--;
-            if(columnBegin<=columnEnd){
-                for(int i=rowEnd;i>=rowBegin && cur!=null;i--){
-                  if(cur!=null){
-                ans[i][columnBegin]=cur.val;
-                  }
-                 
-                    cur=cur.next;
-                
-
-            }
-            
-            }
-            columnBegin++;
-           
+            head = head.next;
         }
-        return ans;
-        
+        return res;
     }
 }
