@@ -23,8 +23,9 @@ class Solution {
     }
 
     public int gcd(int a, int b) {
+        if(a==b) return a;
         int gcd = 1;
-        for(int i=2;i<=Math.max(a,b);i++){
+        for(int i=2;i<=Math.max(a,b)/2;i++){
             if(a%i == 0 && b%i==0 && i > gcd) gcd = i;
         }
         return gcd;
