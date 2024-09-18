@@ -5,12 +5,9 @@ class Solution {
             numStr.add(String.valueOf(num));
         }
         Collections.sort(numStr, (a,b) -> (b+a).compareTo(a+b));
+        if(numStr.get(0).equals("0")) return "0";
         StringBuilder largeNum = new StringBuilder();
         for(String s : numStr) largeNum.append(s);
-        int pos = 0;
-        String largStr = largeNum.toString();
-        int len = largStr.length();
-        while(pos < len && largStr.charAt(pos) == '0') pos++;
-        return pos == len ? "0" : largStr.substring(pos);        
+        return largeNum.toString();        
     }
 }
