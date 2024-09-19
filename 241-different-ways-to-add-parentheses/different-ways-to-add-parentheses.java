@@ -1,4 +1,5 @@
 public class Solution {
+    //solution
     public List<Integer> diffWaysToCompute(String input) {
         List<Integer> ret = new LinkedList<Integer>();
         for (int i=0; i<input.length(); i++) {
