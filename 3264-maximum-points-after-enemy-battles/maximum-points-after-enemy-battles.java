@@ -1,5 +1,15 @@
 class Solution {
     public long maximumPoints(int[] enEn, int currEn) {
+        int minEn = Integer.MAX_VALUE;
+        long sumEn = currEn;
+        for(int en : enEn) {
+            if(minEn > en) minEn = en;
+            sumEn+=en;
+        }
+        if(currEn < minEn) return 0;
+        sumEn-=minEn;
+        return sumEn/minEn;
+        /*
         int enemies = enEn.length;
 
         Arrays.sort(enEn);
@@ -18,5 +28,6 @@ class Solution {
             }
         }
         return points;
+        */
     }
 }
