@@ -9,8 +9,6 @@ class Solution {
             remFreq.put((rem), remFreq.getOrDefault((rem), 0)+1);
         }
 
-        System.out.println(remFreq);
-
         for(int rem : remFreq.keySet()) {
             if(rem == 0 && remFreq.get(rem)%2 != 0) return false;
             else if(rem != 0 && !Objects.equals(remFreq.get(rem),remFreq.get(k-rem))){
