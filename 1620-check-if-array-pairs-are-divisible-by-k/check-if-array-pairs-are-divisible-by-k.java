@@ -10,8 +10,8 @@ class Solution {
         }
 
         for(int rem : remFreq.keySet()) {
-            if(rem == 0 && remFreq.get(rem)%2 != 0) return false;
-            else if(rem != 0 && !Objects.equals(remFreq.get(rem),remFreq.get(k-rem))){
+            if(rem == 0) {if(remFreq.get(rem)%2 != 0) return false;}
+            else if(!Objects.equals(remFreq.get(rem),remFreq.get(k-rem))){
                 return false;
             }
         }
