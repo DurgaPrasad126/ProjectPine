@@ -1,10 +1,10 @@
 class Solution {
     public int[] arrayRankTransform(int[] arr) {
         //return new int[0];
-        Set<Integer> uniqueEle = new HashSet<>();
+        Set<Integer> uniqueEle = new TreeSet<>();
         for(int a : arr) uniqueEle.add(a);
         List<Integer> ele = new ArrayList<>(uniqueEle);
-        Collections.sort(ele);
+        //Collections.sort(ele);
         Map<Integer, Integer> rankArr = new HashMap<>();
 
         for(int i=0;i<ele.size();i++) {
