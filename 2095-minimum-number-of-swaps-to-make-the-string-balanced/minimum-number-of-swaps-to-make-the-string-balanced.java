@@ -3,8 +3,8 @@ class Solution {
         int open = 0;
         int n = s.length();
 
-        for(int i=0;i<n;i++) {
-            if(s.charAt(i) == '[') {
+        for(char c : s.toCharArray()) {
+            if(c == '[') {
                 open++;
             }
             else {
