@@ -8,7 +8,6 @@ class Solution {
             while(pos < sb.length()) {
                 sb1.append(sb.charAt(pos) == 'z' ? 'a' : (char)(sb.charAt(pos++)+1));
             }
-            System.out.println(sb.toString());
             sb.append(sb1);
         }
         return sb.charAt(k-1);
