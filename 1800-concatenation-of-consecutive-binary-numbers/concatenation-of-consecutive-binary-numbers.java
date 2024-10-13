@@ -15,6 +15,6 @@ class Solution {
             pow2=(pow2%MOD)*2;
             concatInt%=MOD;
         }
-        return (int)concatInt;
+        return concatInt;
     }
 }
