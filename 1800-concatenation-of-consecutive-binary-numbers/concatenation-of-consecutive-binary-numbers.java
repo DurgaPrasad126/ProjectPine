@@ -11,19 +11,10 @@ class Solution {
         //String binStr = sb.reverse().toString();
         char[] ch = sb.toString().toCharArray();
         for(int i = ch.length-1;i>=0;i--) {
-            concatInt = (concatInt%MOD) + ((pow2%MOD)*((int)(ch[i]-'0'))%MOD);
+            concatInt += ((pow2)*((int)(ch[i]-'0'))%MOD);
             pow2=(pow2%MOD)*2;
             concatInt%=MOD;
         }
         return (int)concatInt;
-    }
-
-    public String toBinary(int num) {
-        StringBuilder sb = new StringBuilder();
-        while(num>0) {
-            sb.append((char)(num%2+'0'));
-            num/=2;
-        }
-        return sb.reverse().toString();
     }
 }
