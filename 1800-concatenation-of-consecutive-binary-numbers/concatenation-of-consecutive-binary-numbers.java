@@ -3,7 +3,7 @@ class Solution {
         int MOD = 1000000007;
         StringBuilder sb = new StringBuilder();
         for(int i=1;i<=n;i++){
-            sb.append(Integer.toBinaryString(i));
+            sb.append(toBinary(i));
         }
 
         int concatInt = 0;
@@ -16,5 +16,14 @@ class Solution {
             concatInt%=MOD;
         }
         return (int)concatInt;
+    }
+
+    public String toBinary(int num) {
+        StringBuilder sb = new StringBuilder();
+        while(num>0) {
+            sb.append((char)(num%2+'0'));
+            num/=2;
+        }
+        return sb.reverse().toString();
     }
 }
