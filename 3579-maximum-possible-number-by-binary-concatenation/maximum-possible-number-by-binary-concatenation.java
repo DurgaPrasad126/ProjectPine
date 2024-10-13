@@ -4,6 +4,7 @@ class Solution {
         for(int i=0;i<3;i++) {
             binaryRep[i] = toBinary(nums[i]);
         }
+        
         Arrays.sort(binaryRep, (a,b) -> (b+a).compareTo(a+b));
         //System.out.println(binaryRep[0] + " -- " + binaryRep[1] + " -- " + binaryRep[2]);
         return toInt(binaryRep);
@@ -19,7 +20,9 @@ class Solution {
     }
 
     public int toInt(String[] binStr){
-        String combined = binStr[0]+binStr[1]+binStr[2];
+        StringBuilder sb = new StringBuilder();
+        for(String b : binStr) sb.append(b);
+        String combined = sb.toString();
         int pow2 = 1;
         int res = 0;
         for(int i=combined.length()-1;i>=0;i--){
