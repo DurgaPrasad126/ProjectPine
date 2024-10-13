@@ -3,7 +3,7 @@ class Solution {
         int MOD = 1000000007;
         StringBuilder sb = new StringBuilder();
         for(int i=1;i<=n;i++){
-            sb.append(toBinary(i));
+            sb.append(Integer.toBinaryString(i));
         }
 
         int concatInt = 0;
