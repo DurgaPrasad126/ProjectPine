@@ -7,9 +7,11 @@ class Solution {
         }
 
         int concatInt = 0;
-        int pow2 = 1; 
-        for(char c : sb.reverse().toString().toCharArray()) {
-            concatInt = (concatInt%MOD) + ((pow2%MOD)*((int)(c-'0'))%MOD);
+        int pow2 = 1;
+        //String binStr = sb.reverse().toString();
+        char[] ch = sb.toString().toCharArray();
+        for(int i = ch.length-1;i>=0;i--) {
+            concatInt = (concatInt%MOD) + ((pow2%MOD)*((int)(ch[i]-'0'))%MOD);
             pow2=(pow2%MOD)*2;
             concatInt%=MOD;
         }
