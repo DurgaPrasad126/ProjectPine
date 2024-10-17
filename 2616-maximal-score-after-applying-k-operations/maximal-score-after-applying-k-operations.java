@@ -8,6 +8,7 @@ class Solution {
         }
 
         while(k>0) {
+            if(max.peek() == 1) return maxScore+k;
             int curMax = max.poll();
             maxScore+=curMax;
             max.offer((int)(Math.ceil(curMax*1d/3)));
