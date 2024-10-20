@@ -7,9 +7,10 @@ class Solution {
         sb.append('a');
         for(char ch : target.toCharArray()) {
             int n = sb.length();
-            while(n <= target.length() && sb.charAt(n-1) != ch) {
+            char cur = sb.charAt(n-1);
+            while(n <= target.length() && cur != ch) {
                 res.add(sb.toString());
-                sb.setCharAt(n-1, (char)(sb.charAt(n-1)+1));
+                sb.setCharAt(n-1, cur=(char)(cur+1));
             }
             res.add(sb.toString());
             sb.append('a');
