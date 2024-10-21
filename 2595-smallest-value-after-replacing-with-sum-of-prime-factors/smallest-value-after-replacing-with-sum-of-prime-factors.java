@@ -6,7 +6,7 @@ class Solution {
             int sum = 0;
             int num = n;
 
-            for(int i=2;i<=num;i++){
+            for(int i=2;i*i<=num;i++){
                 if(primes[i] && num%i==0) {
                     while(num%i==0) {
                         sum+=(i);
@@ -14,6 +14,7 @@ class Solution {
                     }
                 }
             }
+            if(num > 1) sum+=num;
             n=sum;
         }
         return n;
