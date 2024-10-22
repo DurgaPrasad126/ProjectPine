@@ -12,7 +12,7 @@ class Solution {
                     while(num%j == 0) {
                         num/=j;
                     }
-                    if(primes[num]) primeNumbers.add(num);
+                    if(primes[num] && !primeNumbers.contains(num)) primeNumbers.add(num);
                     if(num < 2) break;
                 }
             }
