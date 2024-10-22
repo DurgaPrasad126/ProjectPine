@@ -4,11 +4,11 @@ class Solution {
         Set<Integer> primeNumbers = new HashSet<>();
         for(int i=0;i<nums.length;i++){
             int num = nums[i];
-            if(primes[num]) primeNumbers.add(num);
+            if(primes[num] && !primeNumbers.contains(num)) primeNumbers.add(num);
             for(int j=2;j*j<=num;j++){
 
                 if(primes[j] && num%j == 0) {
-                    primeNumbers.add(j);
+                    if(!primeNumbers.contains(j)) primeNumbers.add(j);
                     while(num%j == 0) {
                         num/=j;
                     }
