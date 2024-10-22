@@ -18,7 +18,6 @@ class Solution {
             }
         
         }
-        System.out.println(primeNumbers);
         return primeNumbers.size();
     }
     public static boolean[] getPrimeNumbers(int n) {
