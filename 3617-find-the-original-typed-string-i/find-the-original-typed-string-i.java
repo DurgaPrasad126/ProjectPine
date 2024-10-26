@@ -1,21 +1,18 @@
 class Solution {
     public int possibleStringCount(String word) {
-        
+        int left = 0;
+        int right = 0;
+        int n = word.length();
+        int res = 1;
         char[] ch = word.toCharArray();
-        int n = ch.length;
-        int ans =1;
-        int j=1,count=0;
 
-        while(j<n){
-            if(ch[j]==ch[j-1]){
-                count++;
-            }else{
-                ans += count;
-                count=0;
+        while(right<n) {
+            while(right < n && ch[left] == ch[right]) {
+                right++;
             }
-            j++;
+            res+=(right-left-1);
+            left=right;
         }
-        ans += count;
-        return ans;
+        return res;
     }
 }
