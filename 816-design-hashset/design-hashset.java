@@ -1,19 +1,18 @@
 class MyHashSet {
     int[] set = new int[1000001];
     public MyHashSet() {
-        Arrays.fill(set, -1);
     }
     
     public void add(int key) {
-        set[key] = key;
+        set[key] = 1;
     }
     
     public void remove(int key) {
-        set[key] = -1;
+        set[key] = 0;
     }
     
     public boolean contains(int key) {
-        return set[key] == key;
+        return set[key] == 1;
     }
 }
 
