@@ -5,8 +5,7 @@ class Solution {
         for(int j=0;j<24;j++){
             len  = 0;
             for(int i=0;i<candidates.length;i++){
-                len+=(candidates[i]%2) & 1;
-                candidates[i]/=2;
+                if((candidates[i] & (1<<j)) != 0) len++;
             }
             maxLen = Math.max(maxLen, len);
         }
