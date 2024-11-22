@@ -30,7 +30,6 @@ class Solution {
             else high = mid-1;
         }
         highIdx = low;
-        System.out.println(highIdx + " --- " + lowIdx);
         return (long)(highIdx-lowIdx);
     }
 }
