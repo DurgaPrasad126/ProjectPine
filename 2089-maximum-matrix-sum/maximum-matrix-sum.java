@@ -8,8 +8,9 @@ class Solution {
                 if(i < 0) {
                     negatives++;
                 }
-                min = Math.min(min, Math.abs(i));
-                sum+=Math.abs(i);
+                i=Math.abs(i);
+                min = i < min ? i : min;//Math.min(min, Math.abs(i));
+                sum+=i;
             }
         }
 
