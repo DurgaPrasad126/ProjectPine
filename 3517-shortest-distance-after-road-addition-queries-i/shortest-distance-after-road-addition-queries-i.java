@@ -30,8 +30,8 @@ class Solution {
                     return min;
                 }
                 if(!visited.contains(node)){
-                queue.add(new int[]{node, cur[1]+1});
-                visited.add(node);
+                    queue.add(new int[]{node, cur[1]+1});
+                    visited.add(node);
                 }
             }
         }
