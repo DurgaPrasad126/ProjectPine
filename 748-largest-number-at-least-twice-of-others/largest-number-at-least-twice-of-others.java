@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         int maxIdx  = 0;
         int max1 = -1;
-        int max2 = -2;
+        int max2 = -1;
         for(int i=0;i<n;i++){
             if(max1 < nums[i]) {
                 max2 = max1;
