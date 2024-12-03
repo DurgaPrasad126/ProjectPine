@@ -5,6 +5,7 @@ class Solution {
         int spos = 0;
         int len = s.length();
         int slen = spaces.length;
+        char[] ch = s.toCharArray();
 
         while(pos < len && spos < slen) {
             if(spaces[spos] == 0) {
@@ -13,12 +14,12 @@ class Solution {
                 continue;
             }
             if(pos == spaces[spos]-1) {
-                res.append(s.charAt(pos++) + " ");
+                res.append(ch[pos++] + " ");
                 spos++;
             }
-            else res.append(s.charAt(pos++));
+            else res.append(ch[pos++]);
         }
-        while(pos < len) res.append(s.charAt(pos++));
+        while(pos < len) res.append(ch[pos++]);
         return res.toString();
     }
 }
