@@ -6,13 +6,12 @@ class Solution {
         int len = s.length();
         int slen = spaces.length;
         char[] ch = s.toCharArray();
-
-        while(pos < len && spos < slen) {
-            if(spaces[spos] == 0) {
+        if(spaces[spos] == 0) {
                 res.append(" ");
                 spos++;
-                continue;
             }
+        while(pos < len && spos < slen) {
+            
             if(pos == spaces[spos]-1) {
                 res.append(ch[pos++] + " ");
                 spos++;
