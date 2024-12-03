@@ -18,7 +18,7 @@ class Solution {
             }
             else res.append(ch[pos++]);
         }
-        while(pos < len) res.append(ch[pos++]);
+        res.append(s.substring(pos));
         return res.toString();
     }
 }
