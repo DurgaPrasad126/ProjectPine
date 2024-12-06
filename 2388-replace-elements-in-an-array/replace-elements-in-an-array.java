@@ -10,6 +10,7 @@ class Solution {
             int idx = eleToIdx.get(opt[0]);
             replacedArray[idx] = opt[1];
             eleToIdx.put(opt[1], idx);
+            eleToIdx.remove(opt[0]);
         }
         return replacedArray;
     }
