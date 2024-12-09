@@ -4,7 +4,7 @@ class Solution {
         int[] sameParityCount = new int[len];
         for(int i=1;i<len;i++){
             sameParityCount[i] = sameParityCount[i-1] + (nums[i-1] % 2 == nums[i] % 2 ? 1 : 0);
-            System.out.print(sameParityCount[i] + " -- ");
+            //System.out.print(sameParityCount[i] + " -- ");
         }
 
 
