@@ -1,19 +1,13 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-        Set<Integer> set = new HashSet<>();
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        int[] space = new int[100001];
         for(int i : nums) {
-            if( i > 0) {
-                set.add(i);
-            }
+            if(i> 0 && i<= nums.length) space[i] = 1;
         }
-        for(int i : set) minHeap.add(i);
 
-        int pos = 1;
-        while(!minHeap.isEmpty() && pos == minHeap.peek()) {
-            minHeap.poll();
-            pos++;
+        for(int i=1;i<space.length;i++){
+            if(space[i] == 0) return i;
         }
-        return pos;
+        return 100001;
     }
 }
