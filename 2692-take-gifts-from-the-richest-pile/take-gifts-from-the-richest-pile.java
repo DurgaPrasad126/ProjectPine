@@ -1,21 +1,22 @@
 class Solution {
     public long pickGifts(int[] gifts, int k) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a,b) -> b-a);
-        long remGifts = 0l;
+        long sum = 0;
 
         for(int gift : gifts) {
             maxHeap.offer(gift);
+            sum+=gift;
         }
 
         while(k > 0) {
-            int giftsRem = (int)Math.floor(Math.sqrt(maxHeap.poll()));
+            int curGift = maxHeap.poll();
+            int giftsRem = (int)Math.floor(Math.sqrt(curGift));
             maxHeap.add(giftsRem);
+            sum-=(curGift-giftsRem);
             k--;
         }
 
-        while(!maxHeap.isEmpty()) {
-            remGifts+=maxHeap.poll();
-        }
-        return remGifts;
+        
+        return sum;
     }
 }
