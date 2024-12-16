@@ -9,7 +9,7 @@ class Solution {
             int[] cur = q.poll();
             cur[0]*=multiplier;
             nums[cur[1]] = cur[0];
-            q.add(cur);
+            q.add(new int[]{cur[0], cur[1]});
             k--;
         }
         return nums;
