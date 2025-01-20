@@ -12,14 +12,11 @@ class Solution {
         int[] rowCount = new int[m];
         int[] colCount = new int[n];
 
-        Arrays.fill(rowCount, n);
-        Arrays.fill(colCount, m);
-
         for(int i=0;i<arr.length;i++){
             int[] idx = valToIdx.get(arr[i]);
-            rowCount[idx[0]]--;
-            colCount[idx[1]]--;
-            if(rowCount[idx[0]] == 0 || colCount[idx[1]] == 0) return i;
+            rowCount[idx[0]]++;
+            colCount[idx[1]]++;
+            if(rowCount[idx[0]] == n || colCount[idx[1]] == m) return i;
         }
         return -1;
     }
