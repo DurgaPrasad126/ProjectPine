@@ -9,14 +9,12 @@ class Solution {
             suffixSum[n-i-1] = ((i!=0) ? suffixSum[n-i] : 0) + grid[1][n-i-1];
         }
 
-        long minDiff2 = Long.MAX_VALUE;
         long maxScore = Long.MAX_VALUE;
         for(int i=0;i<n;i++){
             long prefSum = (prefixSum[n-1]-prefixSum[i]);
             long suffSum = (suffixSum[0]-suffixSum[i]);
-            if(minDiff2 > Math.abs(prefSum-suffSum) || (maxScore > prefSum || maxScore > suffSum)) {
+            if((maxScore > prefSum || maxScore > suffSum)) {
                 maxScore = Math.min(maxScore, Math.max(prefSum, suffSum));
-                minDiff2 = Math.abs(prefSum-suffSum);
             }
         }
         return maxScore;
