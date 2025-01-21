@@ -14,7 +14,7 @@ class Solution {
         for(int i=0;i<n;i++){
             long prefSum = (prefixSum[n-1]-prefixSum[i]);
             long suffSum = (suffixSum[0]-suffixSum[i]);
-            System.out.println(prefSum + " __ " + suffSum + " diff " + Math.abs(prefSum-suffSum));
+            //System.out.println(prefSum + " __ " + suffSum + " diff " + Math.abs(prefSum-suffSum));
             if(minDiff2 > Math.abs(prefSum-suffSum) || (maxScore > prefSum || maxScore > suffSum)) {
                 maxScore = Math.min(maxScore, Math.max(prefSum, suffSum));
                 minDiff2 = Math.abs(prefSum-suffSum);
