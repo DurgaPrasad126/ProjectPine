@@ -9,9 +9,10 @@ class Solution {
         Map<Integer, Integer> map = new HashMap<>();
         int vowelStrCount = 0;
         for(int i=0;i<words.length;i++) {
-            String word = words[i];
-            if(vowels.contains(word.charAt(0)) 
-                && vowels.contains(word.charAt(word.length()-1))) {
+            char[] word = words[i].toCharArray();
+           
+            if(vowels.contains(word[0]) 
+                && vowels.contains(word[word.length-1])) {
                     vowelStrCount++;
                     map.put(i, vowelStrCount);
                 }
