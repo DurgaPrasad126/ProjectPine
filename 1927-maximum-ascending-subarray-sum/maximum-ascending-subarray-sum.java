@@ -7,7 +7,6 @@ class Solution {
         for(int i=0;i<n-1;i++) {
             if(nums[i] >= nums[i+1]) {
                 maxSum = Math.max(maxSum, curSum);
-                System.out.println(maxSum);
                 curSum = nums[i+1];
             }
             else {
