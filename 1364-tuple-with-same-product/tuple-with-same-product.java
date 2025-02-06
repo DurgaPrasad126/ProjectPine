@@ -9,8 +9,6 @@ class Solution {
             }
         }
 
-        System.out.println(map);
-
         int tuples = 0;
         for(int key : map.keySet()) {
             int value = map.get(key);
