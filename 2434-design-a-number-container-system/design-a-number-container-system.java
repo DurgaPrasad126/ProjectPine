@@ -7,18 +7,25 @@ class NumberContainers {
     }
     
     public void change(int index, int number) {
-        if(idxToNum.containsKey(index)) {
-            int curNum = idxToNum.get(index);
-            if(numToIdxsMap.get(curNum) == null || numToIdxsMap.get(curNum).size() == 0) numToIdxsMap.remove(curNum);
-            else numToIdxsMap.get(curNum).remove(index);
-        }
         idxToNum.put(index, number);
         numToIdxsMap.computeIfAbsent(number, l -> new TreeSet<>()).add(index);
     }
     
     public int find(int number) {
-        if(numToIdxsMap.containsKey(number) && numToIdxsMap.get(number).size() > 0) 
-            return numToIdxsMap.get(number).first();
+        if(numToIdxsMap.containsKey(number) && numToIdxsMap.get(number).size() > 0) {
+            TreeSet<Integer> idxSet = numToIdxsMap.get(number);
+            int idx = idxSet.first();
+            while(idxToNum.containsKey(idx) && idxToNum.get(idx) != number) {
+                idxSet.remove(idx);
+                if(idxSet.size() == 0) {
+                    numToIdxsMap.remove(number);
+                    return -1;
+                }
+                idx = idxSet.first();
+            }
+            numToIdxsMap.put(number, idxSet);
+            return idx;
+        }
         else
             return -1;
 
