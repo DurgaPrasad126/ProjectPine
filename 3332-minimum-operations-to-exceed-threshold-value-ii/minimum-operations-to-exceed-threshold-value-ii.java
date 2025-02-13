@@ -4,7 +4,7 @@ class Solution {
         PriorityQueue<Long> minHeap = new PriorityQueue();
         for(int num : nums) minHeap.offer(1l*num);
 
-        while(minHeap.size() >= 2 && minHeap.peek() < k) {
+        while(minHeap.peek() < k) {
             long el1 = minHeap.poll();
             long el2 = minHeap.poll();
             minHeap.offer(el1*2 + el2);
