@@ -7,7 +7,7 @@ class Solution {
         while(minHeap.size() >= 2 && minHeap.peek() < k) {
             long el1 = minHeap.poll();
             long el2 = minHeap.poll();
-            minHeap.offer(Math.min(el1, el2)*2 + Math.max(el1,el2));
+            minHeap.offer(el1*2 + el2);
             minOperations++;
         }
 
