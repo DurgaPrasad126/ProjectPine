@@ -3,8 +3,13 @@ class Solution {
     int[][] queries;
     public int minZeroArray(int[] nums, int[][] queries) {
         int sum = 0;
-        for(int num : nums) sum+=num;
-        if(sum == 0) return 0;
+        boolean nonZero=false;
+        for(int num : nums) {
+            if(num!=0) nonZero=true;
+            sum+=num;
+        }
+        if(!nonZero && sum == 0) return 0;
+        
         this.nums = nums;
         this.queries = queries;
         int n = queries.length;
