@@ -4,19 +4,14 @@ class Solution {
     public int minZeroArray(int[] nums, int[][] queries) {
         int sum = 0;
         boolean nonZero=false;
-        for(int num : nums) {
-            if(num!=0) nonZero=true;
-            sum+=num;
-        }
-        if(!nonZero && sum == 0) return 0;
-        
+        if(Arrays.stream(nums).allMatch(x -> x==0)) return 0;
         this.nums = nums;
         this.queries = queries;
         int n = queries.length;
         int low = 0;
         int high = n-1;
         int minK = -1;
-
+        if(!isZeroArray(high)) return -1;
         while(low<=high){
             int mid = low +(high-low)/2;
             if(isZeroArray(mid)) {
