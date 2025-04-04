@@ -46,11 +46,8 @@ class Solution {
             }
             depth++;
         }
-        System.out.println(parentMap);
-        System.out.println(levelOrder);
 
         depth-=1;
-        System.out.println(depth);
 
         List<TreeNode> deepestNodes = new ArrayList<>(levelOrder.get(depth));
         for(int i=0;i<deepestNodes.size();i++)        System.out.println(deepestNodes.get(i).val);
