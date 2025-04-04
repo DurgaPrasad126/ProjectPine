@@ -50,7 +50,6 @@ class Solution {
         depth-=1;
 
         List<TreeNode> deepestNodes = new ArrayList<>(levelOrder.get(depth));
-        for(int i=0;i<deepestNodes.size();i++)        System.out.println(deepestNodes.get(i).val);
 
         if(deepestNodes.size()==1) return deepestNodes.get(0);
         LinkedHashSet<TreeNode> deepNodes = parentMap.get(deepestNodes.get(0));
