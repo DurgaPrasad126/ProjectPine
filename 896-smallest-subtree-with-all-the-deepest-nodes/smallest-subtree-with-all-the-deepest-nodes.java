@@ -54,9 +54,7 @@ class Solution {
 
         if(deepestNodes.size()==1) return deepestNodes.get(0);
         LinkedHashSet<TreeNode> deepNodes = parentMap.get(deepestNodes.get(0));
-        for(TreeNode node : deepNodes) {
-            System.out.print(node.val + " ---- ");
-        }
+
         for(int i=1;i<deepestNodes.size();i++) {
             deepNodes.retainAll(parentMap.get(deepestNodes.get(i)));
         }
