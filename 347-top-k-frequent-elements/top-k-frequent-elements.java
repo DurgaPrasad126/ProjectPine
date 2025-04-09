@@ -1,7 +1,6 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> freq = computeFreq(nums);
-        System.out.println(freq);
 
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a,b) -> a[1]-b[1]);
         for(int key : freq.keySet()) {
