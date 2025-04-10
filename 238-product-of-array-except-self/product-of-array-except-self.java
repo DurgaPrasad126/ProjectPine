@@ -3,7 +3,6 @@ class Solution {
         int n = nums.length;
         int[] prefix  = new int[n];
         prefix[0] = 1;
-        int pos = 0;
         for(int i=1;i<n;i++) {
             prefix[i] = prefix[i-1]*nums[i-1];
         }
