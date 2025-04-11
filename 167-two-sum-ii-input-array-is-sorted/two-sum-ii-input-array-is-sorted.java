@@ -1,6 +1,5 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
-        int[] res = new int[2];
         int n = numbers.length;
         for(int i=0;i<n-1;i++) {
             int secNum = target-numbers[i];
