@@ -1,31 +1,29 @@
 class Solution {
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String, Integer> freqMap = new HashMap<>();
-        for(String word : words) {
-            freqMap.put(word, freqMap.getOrDefault(word, 0) + 1);
+        Map<String, Integer> freq = new HashMap<>();
+        for(String word : words) freq.put(word, freq.getOrDefault(word, 0) + 1);
+        List<Word> wordss = new ArrayList<>();
+        for(String word : freq.keySet()) wordss.add(new Word(word, freq.get(word)));
+        PriorityQueue<Word> minHeap = new PriorityQueue<>((a,b) -> b.count==a.count ? a.word.compareTo(b.word) : b.count-a.count);
+        for(Word word : wordss) {
+            minHeap.offer(word);
+            // if(minHeap.size() == k) minHeap.poll();
+            // if(minHeap.isEmpty() || minHeap.peek().count < word.count) minHeap.offer(word);
         }
-        PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>(
-            (e1, e2) -> {
-                int v1 = e1.getValue();
-                int v2 = e2.getValue();
-
-                return v1==v2 ? e2.getKey().compareTo(e1.getKey()) : v1-v2;
-            }
-        );
-
-
+        System.out.println(minHeap.size());
         List<String> res = new ArrayList<>();
-        for(Map.Entry<String, Integer> entry : freqMap.entrySet()) {
-            minHeap.offer(entry);
-            if(minHeap.size() > k) minHeap.poll();
-        }
-
-        while(k > 0) {
-            res.add(minHeap.poll().getKey());
+        while(k > 0 && !minHeap.isEmpty()) {
+            res.add(minHeap.poll().word);
             k--;
         }
-        Collections.reverse(res);
-
         return res;
+    }
+    class Word {
+        String word;
+        int count;
+        Word(String word, int count) {
+            this.word = word;
+            this.count = count;
+        }
     }
 }
