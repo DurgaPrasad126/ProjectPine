@@ -10,7 +10,6 @@ class Solution {
             // if(minHeap.size() == k) minHeap.poll();
             // if(minHeap.isEmpty() || minHeap.peek().count < word.count) minHeap.offer(word);
         }
-        System.out.println(minHeap.size());
         List<String> res = new ArrayList<>();
         while(k > 0 && !minHeap.isEmpty()) {
             res.add(minHeap.poll().word);
