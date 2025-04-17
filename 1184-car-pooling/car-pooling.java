@@ -6,11 +6,11 @@ class Solution {
             travel[trips[i][2]] -= trips[i][0];
         }
 
-        for(int i=1;i<travel.length;i++) {
-            travel[i]+=travel[i-1];
+        for(int i=0;i<travel.length;i++) {
+            if(i!=0) travel[i]+=travel[i-1];
+             if(capacity < travel[i]) return false;
         }
 
-        for(int i=0;i<travel.length;i++) if(capacity < travel[i]) return false;
         return true;
     }
 }
