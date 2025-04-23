@@ -33,6 +33,7 @@ class Solution {
                     if(newX >= 0 && newY >= 0 && newX < m && newY < n && 
                         heights[point[0]][point[1]] <= heights[newX][newY] && !pacV[newX][newY]) {
                             qP.add(new int[]{newX, newY});
+                            pacV[newX][newY] = true;
                         }
                 }
             }
@@ -50,6 +51,8 @@ class Solution {
                     if(newX >= 0 && newY >= 0 && newX < m && newY < n && 
                         heights[point[0]][point[1]] <= heights[newX][newY] && !atlV[newX][newY]) {
                             qV.add(new int[]{newX, newY});
+                            atlV[newX][newY] = true;
+
                         }
                 }
             }
